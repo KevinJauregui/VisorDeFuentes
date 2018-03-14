@@ -5,17 +5,47 @@
  */
 package gui;
 
+import java.awt.Font;
+import model.TextoConFormato;
+
 /**
  *
  * @author Kevin bebé
  */
 public class MainForm extends javax.swing.JFrame {
-
+    private final String TEXTO_PREDET = "Instituto Tecnológico de Campeche";
+    TextoConFormato txt;
+    private Object checkBoxNegritas;
+private void actualizarVista() {
+    etiquetaTexto.setText(txt.getTexto());
+    etiquetaTexto.setFont(txt.getFont());
+    
+private void actualizarModelo() {
+    txt.setTexto(etiquetaTexto.getText());
+    txt.setFuente((String) comboBoxFuente.getSelectedItem());
+    txt.setEstilo(Font.PLAIN);
+    if (checkBoxNegrita.isSelected()) {
+        txt.setEstilo(txt.getEstilo() + Font.BOLD);
+    }
+    if (checkBoxCursiva.isSelected()) {
+        txt.setEstilo(txt.getEstilo() + Font.ITALIC);
+    }
+    if (radioButtonPequeño.isSelected()) {
+        txt.setTamanio(TextoConFormato.TAMANIO_PEQUENIO);
+    }
+    else if (radioButtonMediano.isSelected()) {
+        txt.setTamanio(TextoConFormato.TAMANIO_MEDIANO);
+    }
+    else {
+        txt.setTamanio(TextoConFormato.TAMANIO_GRANDE);
+}
+}
     /**
      * Creates new form MainForm
      */
     public MainForm() {
         initComponents();
+        txt = new TextoConFormato(TEXTO_PREDET);
     }
 
     /**
@@ -98,6 +128,11 @@ public class MainForm extends javax.swing.JFrame {
 
         grupoTamaño.add(radioButtonPequeño);
         radioButtonPequeño.setText("Pequeño");
+        radioButtonPequeño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioButtonPequeñoActionPerformed(evt);
+            }
+        });
 
         grupoTamaño.add(radioButtonMediano);
         radioButtonMediano.setText("Mediano");
@@ -178,6 +213,10 @@ public class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void radioButtonPequeñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonPequeñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioButtonPequeñoActionPerformed
 
     /**
      * @param args the command line arguments

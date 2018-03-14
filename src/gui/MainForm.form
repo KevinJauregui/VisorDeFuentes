@@ -250,6 +250,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Peque&#xf1;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonPeque&#xf1;oActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioButtonMediano">
               <Properties>
